@@ -11,42 +11,28 @@ int main() {
 	for (int i=0; i<N; i++) {
 		for (int j=0; j<M; j++) {
 			cin >> B.at(i).at(j);
+			B.at(i).at(j)--; // 7で割ったあまりで判定できるようにする．0-6
 		}
 	}
 
+	int si = B.at(0).at(0) / 7;
+	int sj = B.at(0).at(0) % 7;
+	
+	if (sj + M - 1 > 6) {
+		cout << "No" << endl;
+		return 0;
+	}
+	
 	for (int i=0; i<N; i++) {
-		for (int  j=0; j<M; j++) {
-			--B.at(i).at(j);
-		}
-	}
-
-	int si, sj;
-	si = B.at(0).at(0) / 7;
-	sj = B.at(0).at(0) % 7;
-
-	bool ans;
-
-	if (sj+M-1 > 6) {
-		ans = false;
-	}
-	else {
-		for (int i=0; i<N; i++) {
-			for (int j=0; j<M; j++) {
-				if (B.at(i).at(j) != B.at(0).at(0)+7*i+j) {
-					ans = false;
-					break;
-				}
-				else {
-					ans = true;
-				}
+		for (int j=0; j<M; j++) {
+			int value = (si + i) * 7 + sj + j;
+			if (B.at(i).at(j) != value) {
+				cout << "No" << endl;
+				return 0;
 			}
 		}
 	}
 
-	if (ans == true) {
-		cout << "Yes" <<endl;
-	}
-	else {
-		cout << "No" << endl;
-	}
+	cout << "Yes" << endl;
+	return 0;
 }
