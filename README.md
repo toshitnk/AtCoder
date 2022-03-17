@@ -1,6 +1,4 @@
-# AtCoder
-AtCoderの問題を解いたソースコードをアップします．
-
+# AtCoderの練習帳
 ## [ABC](https://github.com/toshitnk/AtCoder/tree/main/ABC)
 - [AtCoder](https://atcoder.jp/home)のAtCoder Beginner ContestをC++で解きます．
 - WAが出たものもそのままにしておき，解説等を見たあとのものは`_ans`をファイル名につけることにします．
